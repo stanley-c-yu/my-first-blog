@@ -8,11 +8,12 @@
 	<header>
 		<h1><a = href="/">Stanley's Blog</a></h1>
 	</header>
-	
-	<article>
-		<time>published: 24.08.2022, 2:22</time>
-		<h2><a href="">My first post</a></h2>
-		<p>Hello, World! This is Day 2 of the Django Tutorial.  Moving smoothly so far.  If I can keep this up over the course of the next two days, I should have it done by the end of the week.</p>
-	</article>
+	{% for post in posts %}
+		<article>
+			<time>published: {{ post.published_date }}</time>
+			<h2><a href="">{{ post.title }}</a></h2>
+			<p>{{ post.text|linebreaksbr }}</p>
+		</article>
+	{% endfor %}
 	</body>
 </html>
